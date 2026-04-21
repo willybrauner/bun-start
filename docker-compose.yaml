@@ -1,0 +1,16 @@
+services:
+  bun:
+    image: oven/bun:latest
+    hostname: bun
+    working_dir: /app
+    command: sh -c "FORCE_COLOR=1 bun --watch index.ts"
+    volumes:
+      - ./:/app
+
+  test:
+    image: oven/bun:latest
+    hostname: test
+    working_dir: /app
+    command: sh -c "FORCE_COLOR=1 bun test --watch"
+    volumes:
+      - ./:/app
